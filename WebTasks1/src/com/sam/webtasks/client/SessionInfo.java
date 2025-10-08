@@ -13,7 +13,7 @@ public class SessionInfo {
 	public static int experimentType = Names.EXPERIMENT_PROLIFIC;
 	
 	//what is the name for this experiment?
-	public static String experimentCode="CD2";
+	public static String experimentCode="CD3";
 	
 	//which version of the experiment is this?
 	public static int experimentVersion=1;

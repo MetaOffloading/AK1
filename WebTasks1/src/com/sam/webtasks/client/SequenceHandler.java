@@ -175,7 +175,7 @@ public class SequenceHandler {
 			case 18:
 				ProgressBar.Initialise();
 				ProgressBar.Show();
-				ProgressBar.SetProgress(0, 16);
+				ProgressBar.SetProgress(0, 33);
 				
 				IOtask2Block block7 = new IOtask2Block();
 				
@@ -192,6 +192,43 @@ public class SequenceHandler {
 				block7.Run();
 				break;
 			case 19:
+				if (Params.effortClicks==0) {
+					Params.effortClicks=3;
+				} else {
+					Params.effortClicks=0;
+				}
+				
+				ClickPage.Run(Instructions.Get(9), "Next");
+				break;
+			case 20:
+				IOtask2Block block8 = new IOtask2Block();
+				
+				block8.nTargets = Params.nTargets;
+				block8.totalCircles = 15;
+				block8.offloadCondition = Names.REMINDERS_MANDATORY_TARGETONLY;
+				block8.blockNum = 8;
+				block8.logDragData = true;
+				
+				block8.highEffort = Params.effortClicks;
+				
+				block8.Run();
+				break;
+			case 21:
+				IOtask2Block block9 = new IOtask2Block();
+				
+				block9.nTargets = Params.nTargets;
+				block9.totalCircles = 15;
+				block9.standard16block = true;
+				block9.updateProgressText = true;
+				block9.updateProgress = true;
+				block9.countdownTimer = true;
+				block9.blockNum = 9;
+				block9.logDragData = true;
+				block9.highEffort = Params.effortClicks;
+				
+				block9.Run();
+				break;
+			case 22:
 				ProgressBar.Hide();
 				
 				// log data and check that it saves
@@ -205,7 +242,7 @@ public class SequenceHandler {
 				PHP.UpdateStatus("finished");
 				PHP.logData("finish", data, true);
 				break;
-			case 20:
+			case 23:
 				ClickPage.Run(Instructions.Get(10), "nobutton");
 				break;
 			}

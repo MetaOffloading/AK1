@@ -118,6 +118,19 @@ public class Instructions {
                     + "circles appear. This is not a bug, but intended to speed things up a little.<br><br>"
                     + "You can start the main experiment when you are ready.";
             break;
+        case 9:
+        	i = "From this point onwards, you are going to do the same task but there will be one small change.<br><br>";
+        	
+        	if (Params.effortClicks>0) {
+        		i = i+"Each time you set a "
+                    + "reminder you will now need to click a pop-up box " + Params.effortClicks + " times before continuing.";
+        	} else {
+        		i = i+"This time, it will be easier to set reminders because you will not have to click any pop-up box when you do this.";
+        	}
+        	
+        	i = i+"<br><br>Click below to practice this. Afterwards, the experiment will continue as before.";
+        	
+        	break;
         case 10:
 			i = "You have now completed the experiment.<br><br>"
 					+ "<b>***IMPORTANT:***</b><br><br>"
