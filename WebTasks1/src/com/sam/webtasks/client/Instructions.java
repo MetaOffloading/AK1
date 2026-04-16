@@ -40,18 +40,37 @@ public class Instructions {
                     + "Click below to practise the task.";
             break;
         case 3:
-			i = "Well done. Now it will get more difficult.<br><br>There will be a total of 15 "
-	        			+ "circles and " + Params.nTargets + " of them will be special ones that should go to one of the "
+        	i = "Well done. ";
+        	
+        	if (Params.nTargets==1) {
+        		i = i+ "Next time there will be a total of 15 circles to drag and 1 of them "
+        				+ "will be a special one that should go to a coloured side of the box.<br><br>";
+        	} else {        	
+				i = i+ "Now it will get more difficult.<br><br>There will be a total of 15 "
+	        			+ "circles to drag and " + Params.nTargets + " of them will be special ones that should go to one of the "
 	        			+ "coloured sides of the box.<br><br> "
 	        			+ "Don't worry if you do not remember all of them. That's fine - "
-	        			+ "just try to remember as many as you can.<br><br>"
-	        			+ "Click below to practise the task.";
+	        			+ "just try to remember as many as you can.<br><br>";
+			}
+		
+			i = i + "Click below to practise the task.";
+	        			
             break;
         case 4:
         	i="Now that you have had some practice with the experiment, we would like you to tell us "
                     + "how <b>confident</b> you are that you can accurately perform the task.<br><br>"
                     + "Please use the scale below to indicate what percentage of "
                     + "the special circles you can correctly drag to the instructed side of the square, on average. 100% "
+                    + "would mean that you always get every single one correct. 0% would mean that you can never "
+                    + "get any of them correct.";
+            break;
+        case 41:
+        	i="Now that you have had some practice with the new version of the task, we would like you to tell us "
+                    + "how <b>confident</b> you are that you can accurately perform it.<br><br>"
+                    + "Please use the scale below to indicate what percentage of "
+                    + "the special circles you can correctly drag to the instructed side of the square, on average. Please "
+                    + "answer about the version of the task you practiced just now, <b>not</b> the version you did for "
+                    + "the first half of the experiment. 100% "
                     + "would mean that you always get every single one correct. 0% would mean that you can never "
                     + "get any of them correct.";
             break;
@@ -121,11 +140,13 @@ public class Instructions {
         case 9:
         	i = "From this point onwards, you are going to do the same task but there will be one small change.<br><br>";
         	
-        	if (Params.effortClicks>0) {
-        		i = i+"Each time you set a "
-                    + "reminder you will now need to click a pop-up box " + Params.effortClicks + " times before continuing.";
+        	if (Params.nTargets > 1) {
+        		i = i+"The task will be more difficult now. Instead of 1 special circle to remember each time, "
+                    + "there will be " + Params.nTargets + " to remember.<br><br>"
+                    		+ "Don't worry if you do not remember all of them. That's fine - "
+                    		+ "just try to remember as many as you can.";
         	} else {
-        		i = i+"This time, it will be easier to set reminders because you will not have to click any pop-up box when you do this.";
+        		i = i+"The task will be easier now. There will only be 1 special circle to remember each time you do the task.";
         	}
         	
         	i = i+"<br><br>Click below to practice this. Afterwards, the experiment will continue as before.";

@@ -67,8 +67,10 @@ public class SequenceHandler {
 			 * The code here defines the main sequence of events in the experiment *
 			 **********************************************************************/
 			case 1:
-				if (Counterbalance.getFactorLevel("effortCondition")==0) {
-					Params.effortClicks=0;
+				if (Counterbalance.getFactorLevel("loadCondition")==0) {
+					Params.nTargets=1;
+				} else {
+					Params.nTargets=5;
 				}
 				
 				ClickPage.Run(Instructions.Get(1), "Next");
@@ -90,7 +92,7 @@ public class SequenceHandler {
 				IOtask2Block block2 = new IOtask2Block();
 				
 				block2.totalCircles = 10;
-				block2.nTargets = 3;
+				block2.nTargets = 1;
 				block2.offloadCondition = Names.REMINDERS_NOTALLOWED;
 				block2.blockNum = 2;
 				block2.logDragData = true;
@@ -192,10 +194,10 @@ public class SequenceHandler {
 				block7.Run();
 				break;
 			case 19:
-				if (Params.effortClicks==0) {
-					Params.effortClicks=3;
+				if (Params.nTargets==1) {
+					Params.nTargets=5;
 				} else {
-					Params.effortClicks=0;
+					Params.nTargets=1;
 				}
 				
 				ClickPage.Run(Instructions.Get(9), "Next");
@@ -205,7 +207,7 @@ public class SequenceHandler {
 				
 				block8.nTargets = Params.nTargets;
 				block8.totalCircles = 15;
-				block8.offloadCondition = Names.REMINDERS_MANDATORY_TARGETONLY;
+				block8.offloadCondition = Names.REMINDERS_NOTALLOWED;
 				block8.blockNum = 8;
 				block8.logDragData = true;
 				
@@ -214,6 +216,12 @@ public class SequenceHandler {
 				block8.Run();
 				break;
 			case 21:
+				Slider.Run(Instructions.Get(41), "0%", "100%");
+				break;
+			case 22:
+				PHP.logData("slider2", ""+Slider.getSliderValue(), true);
+				break;
+			case 23:
 				IOtask2Block block9 = new IOtask2Block();
 				
 				block9.nTargets = Params.nTargets;
@@ -228,7 +236,7 @@ public class SequenceHandler {
 				
 				block9.Run();
 				break;
-			case 22:
+			case 24:
 				ProgressBar.Hide();
 				
 				// log data and check that it saves
@@ -236,13 +244,13 @@ public class SequenceHandler {
 				data = data + SessionInfo.participantID + ",";
 				data = data + SessionInfo.gender + ",";
 				data = data + SessionInfo.age + ",";
-				data = data + Params.effortClicks + ",";
+				data = data + Counterbalance.getFactorLevel("loadCondition") + ",";
 				data = data + Counterbalance.getCounterbalancingCell();
 
 				PHP.UpdateStatus("finished");
 				PHP.logData("finish", data, true);
 				break;
-			case 23:
+			case 25:
 				ClickPage.Run(Instructions.Get(10), "nobutton");
 				break;
 			}
