@@ -67,12 +67,6 @@ public class SequenceHandler {
 			 * The code here defines the main sequence of events in the experiment *
 			 **********************************************************************/
 			case 1:
-				if (Counterbalance.getFactorLevel("loadCondition")==0) {
-					Params.nTargets=1;
-				} else {
-					Params.nTargets=5;
-				}
-				
 				ClickPage.Run(Instructions.Get(1), "Next");
 				break;				
 			case 2:
@@ -130,9 +124,7 @@ public class SequenceHandler {
 				block4.offloadCondition = Names.REMINDERS_MANDATORY_TARGETONLY;
 				block4.blockNum = 4;
 				block4.logDragData = true;
-				
-				block4.highEffort = Params.effortClicks;
-				
+
 				block4.Run();
 				break;	
 			case 11:
@@ -152,7 +144,6 @@ public class SequenceHandler {
 				block5.targetValues.add(1);
 				block5.blockNum = 5;
 				block5.logDragData = true;
-				block5.highEffort = Params.effortClicks;
 				
 				block5.Run();
 				break;				
@@ -167,7 +158,6 @@ public class SequenceHandler {
 				block6.standard24blockprac = true;
 				block6.blockNum = 6;
 				block6.logDragData = true;
-				block6.highEffort = Params.effortClicks;
 				
 				block6.Run();
 				break;	
@@ -189,39 +179,13 @@ public class SequenceHandler {
 				block7.countdownTimer = true;
 				block7.blockNum = 7;
 				block7.logDragData = true;
-				block7.highEffort = Params.effortClicks;
 				
 				block7.Run();
 				break;
 			case 19:
-				if (Params.nTargets==1) {
-					Params.nTargets=5;
-				} else {
-					Params.nTargets=1;
-				}
-				
 				ClickPage.Run(Instructions.Get(9), "Next");
 				break;
 			case 20:
-				IOtask2Block block8 = new IOtask2Block();
-				
-				block8.nTargets = Params.nTargets;
-				block8.totalCircles = 15;
-				block8.offloadCondition = Names.REMINDERS_NOTALLOWED;
-				block8.blockNum = 8;
-				block8.logDragData = true;
-				
-				block8.highEffort = Params.effortClicks;
-				
-				block8.Run();
-				break;
-			case 21:
-				Slider.Run(Instructions.Get(41), "0%", "100%");
-				break;
-			case 22:
-				PHP.logData("slider2", ""+Slider.getSliderValue(), true);
-				break;
-			case 23:
 				IOtask2Block block9 = new IOtask2Block();
 				
 				block9.nTargets = Params.nTargets;
@@ -232,11 +196,11 @@ public class SequenceHandler {
 				block9.countdownTimer = true;
 				block9.blockNum = 9;
 				block9.logDragData = true;
-				block9.highEffort = Params.effortClicks;
+				block9.totalPoints = IOtask2BlockContext.getTotalPoints();
 				
 				block9.Run();
 				break;
-			case 24:
+			case 21:
 				ProgressBar.Hide();
 				
 				// log data and check that it saves
@@ -244,13 +208,12 @@ public class SequenceHandler {
 				data = data + SessionInfo.participantID + ",";
 				data = data + SessionInfo.gender + ",";
 				data = data + SessionInfo.age + ",";
-				data = data + Counterbalance.getFactorLevel("loadCondition") + ",";
 				data = data + Counterbalance.getCounterbalancingCell();
 
 				PHP.UpdateStatus("finished");
 				PHP.logData("finish", data, true);
 				break;
-			case 25:
+			case 22:
 				ClickPage.Run(Instructions.Get(10), "nobutton");
 				break;
 			}

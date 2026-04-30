@@ -138,6 +138,10 @@ public class Instructions {
                     + "You can start the main experiment when you are ready.";
             break;
         case 9:
+        	i = "You have completed half of the experimental trials.<br><br>Please now go outside and "
+        			+ "tell the experimenter that you are half way through.";
+        	break;
+        case 999:
         	i = "From this point onwards, you are going to do the same task but there will be one small change.<br><br>";
         	
         	if (Params.nTargets > 1) {
@@ -153,6 +157,10 @@ public class Instructions {
         	
         	break;
         case 10:
+        	i = "You have now completed the experiment.<br><br>"
+        			+ "Thank you very much!";
+        	break;
+        case 100:
 			i = "You have now completed the experiment.<br><br>"
 					+ "<b>***IMPORTANT:***</b><br><br>"
 					+ "Credit Code: 704Q<br><br>" 

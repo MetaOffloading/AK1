@@ -118,8 +118,15 @@ public class IOtask2InitialiseTrial {
 				if ((binPositions.size() % 2) == 0) { // if it's even randomly subtract 1 half the time
 					middle -= Random.nextInt(2);
 				}
-
-				targetPositions.add(binPositions.get(middle));
+				
+				if (block.nTargets > 1) {
+					//ordinarily we put the target in the middle of the bin
+					targetPositions.add(binPositions.get(middle));
+				} else {
+					//but if there is only one target, we place it in a random position
+					//because otherwise it's too predictable
+					targetPositions.add(binPositions.get(Random.nextInt(binPositions.size())));
+				}
 
 				// now empty binPositions variable
 				binPositions.clear();
