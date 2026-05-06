@@ -67,9 +67,15 @@ public class SequenceHandler {
 			 * The code here defines the main sequence of events in the experiment *
 			 **********************************************************************/
 			case 1:
+				Slider.Run(Instructions.Get(11), "0%", "100%");
+				break;
+			case 2:
+				PHP.logData("GA1", ""+Slider.getSliderValue(), true);
+				break;
+			case 3:
 				ClickPage.Run(Instructions.Get(1), "Next");
 				break;				
-			case 2:
+			case 4:
 				IOtask2Block block1 = new IOtask2Block();
 				
 				block1.totalCircles = 10;
@@ -79,10 +85,10 @@ public class SequenceHandler {
 				
 				block1.Run();
 				break;
-			case 3:
+			case 5:
 				ClickPage.Run(Instructions.Get(2), "Next");
 				break;
-			case 4:
+			case 6:
 				IOtask2Block block2 = new IOtask2Block();
 				
 				block2.totalCircles = 10;
@@ -93,10 +99,10 @@ public class SequenceHandler {
 				
 				block2.Run();
 				break;
-			case 5:
+			case 7:
 				ClickPage.Run(Instructions.Get(3), "Next");
 				break;
-			case 6:
+			case 8:
 				IOtask2Block block3 = new IOtask2Block();
 				
 				block3.nTargets = Params.nTargets;
@@ -106,12 +112,6 @@ public class SequenceHandler {
 				block3.logDragData = true;
 				
 				block3.Run();
-				break;
-			case 7:
-				Slider.Run(Instructions.Get(4), "0%", "100%");
-				break;
-			case 8:
-				PHP.logData("slider1", ""+Slider.getSliderValue(), true);
 				break;
 			case 9:
 				ClickPage.Run(Instructions.Get(5), "Next");
@@ -165,6 +165,12 @@ public class SequenceHandler {
 				ClickPage.Run(Instructions.Get(8), "Next");
 				break;	
 			case 18:
+				Slider.Run(Instructions.Get(4), "0%", "100%");
+				break;
+			case 19:
+				PHP.logData("slider1", ""+Slider.getSliderValue(), true);
+				break;
+			case 20:
 				ProgressBar.Initialise();
 				ProgressBar.Show();
 				ProgressBar.SetProgress(0, 33);
@@ -182,10 +188,22 @@ public class SequenceHandler {
 				
 				block7.Run();
 				break;
-			case 19:
+			case 21:
+				Slider.Run(Instructions.Get(11), "0%", "100%");
+				break;
+			case 22:
+				PHP.logData("GA2", ""+Slider.getSliderValue(), true);
+				break;
+			case 23:
 				ClickPage.Run(Instructions.Get(9), "Next");
 				break;
-			case 20:
+			case 24:
+				Slider.Run(Instructions.Get(41), "0%", "100%");
+				break;
+			case 25:
+				PHP.logData("slider2", ""+Slider.getSliderValue(), true);
+				break;
+			case 26:
 				IOtask2Block block9 = new IOtask2Block();
 				
 				block9.nTargets = Params.nTargets;
@@ -200,7 +218,13 @@ public class SequenceHandler {
 				
 				block9.Run();
 				break;
-			case 21:
+			case 27:
+				Slider.Run(Instructions.Get(11), "0%", "100%");
+				break;
+			case 28:
+				PHP.logData("GA3", ""+Slider.getSliderValue(), true);
+				break;
+			case 29:
 				ProgressBar.Hide();
 				
 				// log data and check that it saves
@@ -213,7 +237,7 @@ public class SequenceHandler {
 				PHP.UpdateStatus("finished");
 				PHP.logData("finish", data, true);
 				break;
-			case 22:
+			case 30:
 				ClickPage.Run(Instructions.Get(10), "nobutton");
 				break;
 			}

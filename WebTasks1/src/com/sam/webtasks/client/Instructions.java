@@ -57,20 +57,20 @@ public class Instructions {
 	        			
             break;
         case 4:
-        	i="Now that you have had some practice with the experiment, we would like you to tell us "
-                    + "how <b>confident</b> you are that you can accurately perform the task.<br><br>"
+        	i="The first half of the experiment is about to start. Before it begins, we would like you to tell us "
+                    + "how <b>confident</b> you are that you can accurately perform the task, when "
+                    + "you remember the circles on your own <b>without</b> any reminders.<br><br>"
                     + "Please use the scale below to indicate what percentage of "
                     + "the special circles you can correctly drag to the instructed side of the square, on average. 100% "
                     + "would mean that you always get every single one correct. 0% would mean that you can never "
                     + "get any of them correct.";
             break;
         case 41:
-        	i="Now that you have had some practice with the new version of the task, we would like you to tell us "
-                    + "how <b>confident</b> you are that you can accurately perform it.<br><br>"
+        	i="The second half of the experiment is about to start. Before it begins, we would like you to tell us "
+                    + "how <b>confident</b> you are that you can accurately perform the task, when "
+                    + "you remember the circles on your own <b>without</b> any reminders.<br><br>"
                     + "Please use the scale below to indicate what percentage of "
-                    + "the special circles you can correctly drag to the instructed side of the square, on average. Please "
-                    + "answer about the version of the task you practiced just now, <b>not</b> the version you did for "
-                    + "the first half of the experiment. 100% "
+                    + "the special circles you can correctly drag to the instructed side of the square, on average. 100% "
                     + "would mean that you always get every single one correct. 0% would mean that you can never "
                     + "get any of them correct.";
             break;
@@ -160,6 +160,10 @@ public class Instructions {
         	i = "You have now completed the experiment.<br><br>"
         			+ "Thank you very much!";
         	break;
+        case 11:
+        	i = "Right now, how are you feeling? Please use the slider to select the option "
+        		+ "that best describes how you feel at the moment (0% = not at all anxious/nervous; 100% = extremely anxious/nervous)";
+        		break;       		
         case 100:
 			i = "You have now completed the experiment.<br><br>"
 					+ "<b>***IMPORTANT:***</b><br><br>"
