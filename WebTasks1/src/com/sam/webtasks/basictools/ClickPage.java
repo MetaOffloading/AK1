@@ -43,8 +43,18 @@ public class ClickPage {
 	    displayText.setStyleName("instructionText");
 	    verticalPanel.add(displayText);
 	    
-	    if (!buttonText.contentEquals("nobutton")) {
-	    	verticalPanel.add(continueButton);
+	    if (buttonText.contentEquals("wait20s")) {	
+	    	new Timer() {
+                public void run() {
+                	RootPanel.get().remove(horizontalPanel);
+                	
+                	SequenceHandler.Next();
+                }
+            }.schedule(20000);
+	    } else {	    
+	    	if (!buttonText.contentEquals("nobutton")) {
+	    		verticalPanel.add(continueButton);
+	    	}
 	    }
 
 	    //place vertical panel inside horizontal panel, so it can be centred

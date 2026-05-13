@@ -139,7 +139,7 @@ public class Instructions {
             break;
         case 9:
         	i = "You have completed half of the experimental trials.<br><br>Please now go outside and "
-        			+ "tell the experimenter that you are half way through.";
+        			+ "<b>tell the experimenter</b> that you are half way through.";
         	break;
         case 999:
         	i = "From this point onwards, you are going to do the same task but there will be one small change.<br><br>";
